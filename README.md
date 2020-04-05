@@ -1,2 +1,2 @@
 # yukkuri
-yukkuri devides koean sentence into token, and translates them into japanese
+yukkuri devides korean sentence into token, and translates them into japanese
