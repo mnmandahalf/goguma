@@ -1,0 +1,13 @@
+version: '3'
+services:
+  node:
+    build:
+      context: .
+    tty: true
+    environment:
+      - NODE_ENV=production
+    volumes:
+    - .:/app
+    command: sh -c "cd yukkuri && PORT=4000 yarn start"
+    ports:
+    - "4000:4000"
