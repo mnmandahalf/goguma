@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
-import { saveInputText } from './actions/action'
+import { saveInputText } from '../actions/action'
 
 export const Form = () => {
   const [inputText, setInputText] = useState('')
