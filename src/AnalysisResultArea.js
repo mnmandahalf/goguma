@@ -1,9 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux'
 
 export const AnalysisResultArea = () => {
+  const result = useSelector(state => state)
   return (
     <p>
-      <text>ここに結果</text>
+      <span>結果：</span>
+      <span>{result}</span>
     </p>
   )
 }
