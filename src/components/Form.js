@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
-import { saveInputText } from '../actions/action'
+import { fetchAnalysis } from '../actions/index.js'
 
 export const Form = () => {
   const [inputText, setInputText] = useState('')
   const handleChange = (event) => setInputText(event.target.value)
   const dispatch = useDispatch()
   const handleClick = () => {
-    dispatch(saveInputText(inputText))
+    dispatch(fetchAnalysis(inputText))
   }
 
   return (
