@@ -2,7 +2,10 @@ import { combineReducers } from 'redux';
 
 const initialState = {
   analysis: {
-    text: null
+    text: null,
+    romanized: null,
+    translation: null,
+    tokens: []
   }
 }
 export const reducer = (state = initialState, action) => {
