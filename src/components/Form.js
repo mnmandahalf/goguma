@@ -16,7 +16,7 @@ export const Form = () => {
   return (
     <div className={classes.form}>
       <Input type="text"
-        placeholder="テキストを入力"
+        placeholder="韓国語のテキストを入力 （例）오늘은 좋은 날씨 네요."
         onChange={handleChange}
         value={inputText}
         multiline={true}
