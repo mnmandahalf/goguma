@@ -7,19 +7,3 @@
 .example {
   color: darkgray;
 }
-.tokens {
- display: flex;
- flex-wrap: wrap;
-}
-.tokenBlock {
-  display: inline-block;
-  min-width: 10%;
-  padding: 6px;
- margin: 0 10px 0 0;
-}
-.tokenItem {
-}
-
-.tokenSmall {
-  font-size: 12px;
-}

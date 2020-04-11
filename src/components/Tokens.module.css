@@ -1,0 +1,13 @@
+.tokens {
+ display: flex;
+ flex-wrap: wrap;
+}
+.tokenBlock {
+  display: inline-block;
+  min-width: 10%;
+  padding: 6px;
+ margin: 0 10px 10px 0;
+}
+.tokenSmall {
+  font-size: 12px;
+}

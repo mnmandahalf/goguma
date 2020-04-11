@@ -1,7 +1,6 @@
-export const saveInputText = (value) => (
+export const resetAnalysis = () => (
   {
-    type: 'SAVE_INPUT_TEXT',
-    value
+    type: 'RESET_ANALYSIS'
   }
 )
 

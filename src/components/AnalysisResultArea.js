@@ -1,7 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
 import classes from './AnalysisResultArea.module.css'
-import { Card } from '@material-ui/core';
+import { Card } from '@material-ui/core'
+import { Tokens } from './Tokens'
+
 const sampleTokens = [
   {token: "오늘", romanized: "oneul", word_class: "一般名詞", translation: "今日では"},
   {token: "은", romanized: "eun", word_class: "終助詞", translation: "は"},
@@ -28,27 +30,7 @@ export const AnalysisResultArea = () => {
       }
       <span>品詞分解</span>
       <p>
-        <div className={classes.tokens}>
-          {
-            result.tokens.length === 0 ?
-            (sampleTokens.map(item =>
-              <Card variant="outlined" key={item.token} className={`${classes.tokenBlock} ${classes.example}`}>
-                <div className={classes.tokenSmall}>{item.romanized}</div>
-                <div className={classes.tokenItem}>{item.token}</div>
-                <div className={classes.tokenSmall}>{item.word_class}</div>
-                <div className={classes.tokenSmall}>{item.translation}</div>
-              </Card>)
-            ) :
-            (result.tokens.map(item =>
-              <Card variant="outlined" key={item.token} className={classes.tokenBlock}>
-                <div className={classes.tokenSmall}>{item.romanized}</div>
-                <div className={classes.tokenItem}>{item.token}</div>
-                <div className={classes.tokenSmall}>{item.word_class}</div>
-                <div className={classes.tokenSmall}>{item.translation}</div>
-              </Card>)
-            )
-          }
-        </div>
+        <Tokens tokens={result.tokens.length === 0 ? sampleTokens : result.tokens} />
       </p>
     </Card>
   )

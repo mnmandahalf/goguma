@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
-import { fetchAnalysis } from '../actions/index.js'
-import { Container, TextField, Button } from '@material-ui/core';
+import { fetchAnalysis, resetAnalysis } from '../actions/index.js'
+import { TextField, Button } from '@material-ui/core';
 import classes from './Form.module.css'
 
 export const Form = () => {
   const [inputText, setInputText] = useState('')
   const handleChange = (event) => setInputText(event.target.value)
   const dispatch = useDispatch()
-  const handleClick = () => {
+  const handleClickAnalize = () => {
     if (!inputText || invalidTextLength()) return
     dispatch(fetchAnalysis(inputText))
+  }
+  const handleClickReset = () => {
+    dispatch(resetAnalysis())
+    setInputText("")
   }
   const invalidTextLength = () => inputText.length > 500
 
@@ -26,11 +30,17 @@ export const Form = () => {
         helperText={invalidTextLength() ? "文字数制限（500字）を超えています" : ""}
       />
       <Button
-        onClick={handleClick}
+        onClick={handleClickAnalize}
         variant="contained"
         className={classes.inputButton}
         color="primary">
         解析する
+      </Button>
+      <Button
+        onClick={handleClickReset}
+        variant="contained"
+        className={classes.inputButton}>
+        リセット
       </Button>
     </div>
   )

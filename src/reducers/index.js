@@ -10,8 +10,8 @@ const initialState = {
 }
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SAVE_INPUT_TEXT':
-      return action.value
+    case 'RESET_ANALYSIS':
+      return initialState
     case 'FULLFILLED_ANALYSIS':
       return {
         ...state,
