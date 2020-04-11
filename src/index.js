@@ -6,12 +6,12 @@ import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware } from 'redux'
 import { createEpicMiddleware } from 'redux-observable';
 import { Provider } from 'react-redux'
-import { rootReducer } from './reducers/index.js'
+import { reducer } from './reducers/index.js'
 import { rootEpic } from './epics/index.js'
 
 const epicMiddleware = createEpicMiddleware()
 const store = createStore(
-  rootReducer,
+  reducer,
   applyMiddleware(epicMiddleware)
 )
 epicMiddleware.run(rootEpic)
