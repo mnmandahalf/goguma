@@ -8,8 +8,6 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>yukkuri</h1>
         <Form />
         <AnalysisResultArea />
       </header>

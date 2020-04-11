@@ -1,12 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
 import classes from './AnalysisResultArea.module.css'
+import { Paper } from '@material-ui/core';
 
 export const AnalysisResultArea = () => {
   const result = useSelector(state => state.analysis)
+  if (!result.text) return null
   return (
-    <div className={classes.resultArea}>
-      <span>- 結果 -</span>
+    <Paper>
+      <span>結果</span>
       <p>{result.text}</p>
       <p>{result.romanized}</p>
       <p>{result.translation}</p>
@@ -22,6 +24,6 @@ export const AnalysisResultArea = () => {
           )
         }
       </div>
-    </div>
+    </Paper>
   )
 }
