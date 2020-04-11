@@ -1,12 +1,10 @@
 import React from 'react';
 import './App.css';
-import logo from '../logo.png';
-import { Grid, AppBar, Toolbar, IconButton, Avatar, Typography, Container } from '@material-ui/core';
+import { Grid, AppBar, Toolbar, IconButton, Typography, Container } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Form } from './Form.js';
-import { AnalysisResultArea } from './AnalysisResultArea.js';
-import { Footer } from './Footer.js';
-import classes from './App.module.css'
+import { AnalysisResultArea } from './AnalysisResultArea'
+import { RightColumn } from './RightColumn'
 
 const App = () => {
   return (
@@ -30,10 +28,10 @@ const App = () => {
           </Container>
         </Grid>
         <Grid item lg={3}>
+          <RightColumn />
         </Grid>
         <Grid item lg={1} />
       </Grid>
-      <Footer />
     </>
   );
 }

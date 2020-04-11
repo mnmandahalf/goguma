@@ -1,7 +1,12 @@
 .footer {
   bottom: 0;
-  height: 10vh;
+  height: 5vh;
   width: 100%;
-  background-color: darkgray;
+  background-color: rgb(241, 241, 241);
   position: fixed;
+  text-align: center;
+}
+.footerText {
+  vertical-align: bottom;
+  color: darkgray;
 }
