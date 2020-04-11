@@ -1,0 +1,16 @@
+.resultArea {
+ font-size: 18px;
+}
+.tokens {
+ display: flex;
+}
+.tokenBlock {
+  display: inline-block;
+  margin: 8px;
+}
+.tokenItem {
+}
+
+.tokenSmall {
+  font-size: 12px;
+}

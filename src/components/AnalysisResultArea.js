@@ -1,24 +1,27 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
+import classes from './AnalysisResultArea.module.css'
 
 export const AnalysisResultArea = () => {
   const result = useSelector(state => state.analysis)
   return (
-    <p>
+    <div className={classes.resultArea}>
       <span>- 結果 -</span>
       <p>{result.text}</p>
       <p>{result.romanized}</p>
       <p>{result.translation}</p>
-      {
-        result.tokens.map(item =>
-          <div key={item.token}>
-            <span>{item.token}</span>
-            <span>{item.romanized}</span>
-            <span>{item.translation}</span>
-            <span>{item.word_class}</span>
-          </div>
-        )
-      }
-    </p>
+      <div className={classes.tokens}>
+        {
+          result.tokens.map(item =>
+            <div key={item.token} className={classes.tokenBlock}>
+              <div className={classes.tokenItem}>{item.token}</div>
+              <div className={classes.tokenSmall}>{item.romanized}</div>
+              <div className={classes.tokenItem}>{item.translation}</div>
+              <div className={classes.tokenSmall}>{item.word_class}</div>
+            </div>
+          )
+        }
+      </div>
+    </div>
   )
 }
