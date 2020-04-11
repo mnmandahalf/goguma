@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { fetchAnalysis } from '../actions/index.js'
-import { Input, Button } from '@material-ui/core';
+import { Container, Input, Button } from '@material-ui/core';
+import classes from './Form.module.css'
 
 export const Form = () => {
   const [inputText, setInputText] = useState('')
@@ -13,14 +14,21 @@ export const Form = () => {
   }
 
   return (
-    <p>
+    <div className={classes.form}>
       <Input type="text"
         placeholder="テキストを入力"
         onChange={handleChange}
         value={inputText}
         multiline={true}
+        className={classes.inputText}
       />
-      <Button onClick={handleClick} variant="contained" color="primary">解析する</Button>
-    </p>
+      <Button
+        onClick={handleClick}
+        variant="contained"
+        className={classes.inputButton}
+        color="primary">
+        解析する
+      </Button>
+    </div>
   )
 }

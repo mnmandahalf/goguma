@@ -1,0 +1,7 @@
+.footer {
+  bottom: 0;
+  height: 10vh;
+  width: 100%;
+  background-color: darkgray;
+  position: fixed;
+}
