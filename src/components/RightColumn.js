@@ -18,9 +18,6 @@ export const RightColumn = () => (
       <ListItem className={classes.links}>
         <Link href="http://mnmandahalf.hatenablog.com/">管理人ブログ</Link>
       </ListItem>
-      <ListItem className={classes.links}>
-        <Link href="https://twitter.com/mnmandahalf">管理人Twitter</Link>
-      </ListItem>
     </List>
   </List>
 )
