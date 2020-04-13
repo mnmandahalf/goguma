@@ -17,6 +17,13 @@ export const reducer = (state = initialState, action) => {
         ...state,
         analysis: action.payload.analysis
       }
+    case 'REQUEST_START':
+    case 'REQUEST_SUCCESS':
+    case 'REQUEST_FAILURE':
+      return {
+        ...state,
+        status: action.payload.status
+      }
     default: {
       return state
     }

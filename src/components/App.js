@@ -3,7 +3,7 @@ import './App.css';
 import { Grid, AppBar, Toolbar, IconButton, Typography, Container } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Form } from './Form.js';
-import { AnalysisResultArea } from './AnalysisResultArea'
+import { AnalysisResultAreaContainer as AnalysisResultArea } from './AnalysisResultAreaContainer'
 import { RightColumn } from './RightColumn'
 
 const App = () => {

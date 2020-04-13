@@ -1,11 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux'
 import classes from './AnalysisResultArea.module.css'
 import { Card } from '@material-ui/core'
 import { Tokens } from './Tokens'
 
-export const AnalysisResultArea = () => {
-  const result = useSelector(state => state.analysis)
+export const AnalysisResultArea = ({ result }) => {
   return (
     <Card variant="outlined" className={classes.resultArea}>
       <span>日本語訳</span>

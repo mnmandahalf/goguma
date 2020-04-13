@@ -19,3 +19,23 @@ export const fullfilledAnalysis = (response) => (
     }
   }
 )
+export const requestStart = () => ({
+  type: 'REQUEST_START',
+  payload: {
+    status: 'REQUEST'
+  }
+})
+
+export const requestSuccess = () => ({
+  type: 'REQUEST_SUCCESS',
+  payload: {
+    status: 'SUCCESS'
+  }
+})
+
+export const requestFailure = () => ({
+  type: 'REQUEST_FAILURE', 
+  payload: {
+    status: 'FAILURE'
+  }
+})

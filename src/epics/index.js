@@ -1,16 +1,14 @@
 import { combineEpics } from 'redux-observable';
 import { ajax } from 'rxjs/ajax';
 import { ofType  } from 'redux-observable';
-import { mergeMap, map, catchError } from 'rxjs/operators';
 import { fullfilledAnalysis } from '../actions/index.js'
+import { requestObservable } from './request'
 
 const fetchAnalysisEpic = action$ => action$.pipe(
   ofType('FETCH_ANALYSIS'),
-  mergeMap(action =>
-    ajax.getJSON(`https://korean-analyze-api.herokuapp.com//analyze?text=${action.text}`).pipe(
-      map(response => fullfilledAnalysis(response)),
-      catchError(error => console.log(error.xhr.response))
-    ) 
+  requestObservable(
+    action => ajax.getJSON(`https://korean-analyze-api.herokuapp.com//analyze?text=${action.text}`),
+    response => fullfilledAnalysis(response)
   )
 );
 
