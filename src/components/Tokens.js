@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from '@material-ui/core';
+import { Skeleton } from '@material-ui/lab'
 import classes from './Tokens.module.css'
 
 const sampleTokens = [
@@ -12,11 +13,11 @@ const sampleTokens = [
   {token: "네요", romanized: "neyo", word_class: "語尾", translation: "ね"}
 ]
 
-export const Tokens = ({ tokens }) => {
+export const Tokens = ({ tokens, isRequesting }) => {
   const items = tokens.length > 0 ? tokens : sampleTokens
   return (
     <div className={classes.tokens}>
-      {
+      {!isRequesting ? (
         items.map((item, index) =>
           <Card variant="outlined" key={item.token + index} className={classes.tokenBlock}>
             <div className={classes.tokenSmall}>{item.romanized}</div>
@@ -24,6 +25,15 @@ export const Tokens = ({ tokens }) => {
             <div className={classes.tokenSmall}>{item.word_class}</div>
             <div className={classes.tokenSmall}>{item.translation}</div>
           </Card>)
+        ) : (
+          <>
+            <Skeleton variant="rect" className={classes.tokenBlock} height={80} />
+            <Skeleton variant="rect" className={classes.tokenBlock} height={80} />
+            <Skeleton variant="rect" className={classes.tokenBlock} height={80} />
+            <Skeleton variant="rect" className={classes.tokenBlock} height={80} />
+            <Skeleton variant="rect" className={classes.tokenBlock} height={80} />
+          </>
+        )
       }
     </div>
   )

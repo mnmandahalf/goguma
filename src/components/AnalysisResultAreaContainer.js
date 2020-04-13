@@ -4,5 +4,6 @@ import { AnalysisResultArea } from './AnalysisResultArea'
 
 export const AnalysisResultAreaContainer = () => {
   const result = useSelector(state => state.analysis)
-  return <AnalysisResultArea result={result} />
+  const status = useSelector(state => state.status)
+  return <AnalysisResultArea result={result} isRequesting={status === "REQUEST"}/>
 }
