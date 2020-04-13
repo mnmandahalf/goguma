@@ -7,7 +7,7 @@ import { fullfilledAnalysis } from '../actions/index.js'
 const fetchAnalysisEpic = action$ => action$.pipe(
   ofType('FETCH_ANALYSIS'),
   mergeMap(action =>
-    ajax.getJSON(`http://localhost:3000/analyze?text=${action.text}`).pipe(
+    ajax.getJSON(`https://korean-analyze-api.herokuapp.com//analyze?text=${action.text}`).pipe(
       map(response => fullfilledAnalysis(response)),
       catchError(error => console.log(error.xhr.response))
     ) 
