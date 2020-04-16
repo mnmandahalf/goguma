@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Container } from '@material-ui/core';
 import { Header } from './Header.js';
-import { Form } from './Form.js';
+import { FormContainer as Form } from './FormContainer.js';
 import { AnalysisResultAreaContainer as AnalysisResultArea } from './AnalysisResultAreaContainer'
 import { RightColumn } from './RightColumn'
 

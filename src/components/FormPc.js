@@ -4,20 +4,7 @@ import { fetchAnalysis, resetAnalysis } from '../actions/index.js'
 import { TextField, Button } from '@material-ui/core';
 import classes from './Form.module.css'
 
-export const Form = ({ isPC }) => {
-  const [inputText, setInputText] = useState('')
-  const handleChange = (event) => setInputText(event.target.value)
-  const dispatch = useDispatch()
-  const handleClickAnalize = () => {
-    if (!inputText || invalidTextLength()) return
-    dispatch(fetchAnalysis(inputText))
-  }
-  const handleClickReset = () => {
-    dispatch(resetAnalysis())
-    setInputText("")
-  }
-  const invalidTextLength = () => inputText.length > 500
-
+export const FormPc = ({ handleChange, inputText, invalidTextLength,  handleClickAnalize, handleClickReset }) => {
   return (
     <div className={classes.form}>
       <TextField
@@ -31,18 +18,16 @@ export const Form = ({ isPC }) => {
       />
       <Button
         onClick={handleClickAnalize}
-        size={isPC ? "medium" : "small"}
+        size="medium"
         variant="contained"
-        className={classes.inputButton}
         color="primary">
-        {isPC ? '解析する' : '解析'}
+        解析する
       </Button>
       <Button
         onClick={handleClickReset}
-        size={isPC ? "medium" : "small"}
-        variant="contained"
-        className={classes.inputButton}>
-        {isPC ? 'リセット' : 'クリア'}
+        size="medium"
+        variant="contained">
+        リセット
       </Button>
     </div>
   )
