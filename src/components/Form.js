@@ -4,7 +4,7 @@ import { fetchAnalysis, resetAnalysis } from '../actions/index.js'
 import { TextField, Button } from '@material-ui/core';
 import classes from './Form.module.css'
 
-export const Form = () => {
+export const Form = ({ isPC }) => {
   const [inputText, setInputText] = useState('')
   const handleChange = (event) => setInputText(event.target.value)
   const dispatch = useDispatch()
@@ -34,7 +34,7 @@ export const Form = () => {
         variant="contained"
         className={classes.inputButton}
         color="primary">
-        解析する
+        { isPC ? '解析する' : '解析' }
       </Button>
       <Button
         onClick={handleClickReset}

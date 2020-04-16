@@ -1,39 +1,23 @@
 import React from 'react';
 import './App.css';
-import { Grid, AppBar, Toolbar, IconButton, Typography, Container } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
-import { Form } from './Form.js';
-import { AnalysisResultAreaContainer as AnalysisResultArea } from './AnalysisResultAreaContainer'
-import { RightColumn } from './RightColumn'
+import { PCHome } from './PCHome'
+import { SPHome } from './SPHome'
 
-const App = () => {
-  return (
-    <>
-      <AppBar color="transparent" position="static">
-        <Toolbar>
-          <IconButton edge="start" color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6">yukkuri</Typography>
-        </Toolbar>
-      </AppBar>
-      <Grid container spacing={3}>
-        <Grid item lg={1} />
-        <Grid item lg={7}>
-          <Container>
-            <Form />
-          </Container>
-          <Container>
-            <AnalysisResultArea />
-          </Container>
-        </Grid>
-        <Grid item lg={3}>
-          <RightColumn />
-        </Grid>
-        <Grid item lg={1} />
-      </Grid>
-    </>
-  );
+const isPC = () => {
+  const ua = window.navigator.userAgent.toLowerCase();
+  if (ua.indexOf('iphone') > 0 || ua.indexOf('ipod') > 0 || (ua.indexOf('android') > 0 && ua.indexOf('mobile') > 0)) {
+      return false
+  } else if (ua.indexOf('ipad') > 0 || ua.indexOf('android') > 0) {
+      // iOS12 まで
+      return true
+  } else if (ua.indexOf('ipad') > -1 || (ua.indexOf('macintosh') > -1 && 'ontouchend' in document)) {
+      // iOS13 以降
+      return true
+  } else {
+      return true
+  }
 }
+
+const App = () => isPC() ? <PCHome /> : <SPHome />
 
 export default App;
