@@ -31,16 +31,18 @@ export const Form = ({ isPC }) => {
       />
       <Button
         onClick={handleClickAnalize}
+        size={isPC ? "medium" : "small"}
         variant="contained"
         className={classes.inputButton}
         color="primary">
-        { isPC ? '解析する' : '解析' }
+        {isPC ? '解析する' : '解析'}
       </Button>
       <Button
         onClick={handleClickReset}
+        size={isPC ? "medium" : "small"}
         variant="contained"
         className={classes.inputButton}>
-        リセット
+        {isPC ? 'リセット' : 'クリア'}
       </Button>
     </div>
   )
