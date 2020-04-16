@@ -8,7 +8,7 @@ export const Header = () => (
       <IconButton edge="start" color="inherit" aria-label="menu">
         <MenuIcon />
       </IconButton>
-      <Typography variant="h6">yukkuri</Typography>
+      <Typography variant="h7">韓国語テキスト解析ツール yukkuri</Typography>
     </Toolbar>
   </AppBar>
 )
