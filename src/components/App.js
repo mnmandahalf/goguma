@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { PCHome } from './PCHome'
 import { SPHome } from './SPHome'
 
