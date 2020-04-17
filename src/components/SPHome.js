@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Container } from '@material-ui/core';
+import { Box, Grid, Container } from '@material-ui/core';
 import { Header } from './Header.js';
 import { FormContainer as Form } from './FormContainer.js';
 import { AnalysisResultAreaContainer as AnalysisResultArea } from './AnalysisResultAreaContainer'
@@ -9,6 +9,7 @@ export const SPHome = () => {
   return (
     <>
       <Header />
+      <Box mt={4}/>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Container>
@@ -16,6 +17,7 @@ export const SPHome = () => {
           </Container>
         </Grid>
       </Grid>
+      <Box mt={2}/>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Container>

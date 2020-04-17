@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { fetchAnalysis, resetAnalysis } from '../actions/index.js'
-import { FormPc } from './FormPc'
-import { FormSp } from './FormSp'
+import { Form } from './Form'
 
 export const FormContainer = ({ isPC }) => {
   const [inputText, setInputText] = useState('')
@@ -26,8 +25,5 @@ export const FormContainer = ({ isPC }) => {
     invalidTextLength: invalidTextLength
   }
 
-  if(isPC) {
-    return <FormPc {...formProps} />
-  }
-  return <FormSp {...formProps} />
+  return <Form {...formProps} />
 }

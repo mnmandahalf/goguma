@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Container } from '@material-ui/core';
+import { Grid, Box } from '@material-ui/core';
 import { Header } from './Header.js';
 import { FormContainer as Form } from './FormContainer.js';
 import { AnalysisResultAreaContainer as AnalysisResultArea } from './AnalysisResultAreaContainer'
@@ -9,16 +9,12 @@ export const PCHome = () => {
   return (
     <>
       <Header />
-      <div style={{marginTop:15}}/>
+      <Box mt={4}/>
       <Grid container spacing={3}>
         <Grid item lg={2} />
         <Grid item lg={6}>
           <Form isPC={true} />
-        </Grid>
-      </Grid>
-      <Grid container spacing={3}>
-        <Grid item lg={2} />
-        <Grid item lg={6}>
+          <Box mt={4}/>
           <AnalysisResultArea />
         </Grid>
         <Grid item lg={3}>
