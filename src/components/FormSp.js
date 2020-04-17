@@ -18,7 +18,7 @@ export const FormSp = ({ handleChange, inputText, invalidTextLength, handleClick
       </div>
       <div className={classes.form}>
         <Button
-          onClime={classes.button}
+          onClick={handleClickAnalize}
           fullWidth
           size="large"
           variant="contained"
