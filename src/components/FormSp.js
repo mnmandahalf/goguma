@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField, Button } from '@material-ui/core';
+import { Grid, TextField, Button } from '@material-ui/core';
 import classes from './Form.module.css'
 
 export const FormSp = ({ handleChange, inputText, invalidTextLength, handleClickAnalize, handleClickReset }) => {
@@ -18,14 +18,17 @@ export const FormSp = ({ handleChange, inputText, invalidTextLength, handleClick
       </div>
       <div className={classes.form}>
         <Button
-          onClick={handleClickAnalize}
+          onClime={classes.button}
+          fullWidth
           size="large"
           variant="contained"
           color="primary">
           解析する
         </Button>
+        <Grid xs={1} />
         <Button
           onClick={handleClickReset}
+          fullWidth
           size="large"
           variant="contained">
           リセット

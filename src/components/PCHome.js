@@ -9,20 +9,17 @@ export const PCHome = () => {
   return (
     <>
       <Header />
+      <div style={{marginTop:15}}/>
       <Grid container spacing={3}>
-        <Grid item lg={1} />
-        <Grid item lg={7}>
-          <Container>
-            <Form isPC={true} />
-          </Container>
+        <Grid item lg={2} />
+        <Grid item lg={6}>
+          <Form isPC={true} />
         </Grid>
       </Grid>
       <Grid container spacing={3}>
-        <Grid item lg={1} />
-        <Grid item lg={7}>
-          <Container>
-            <AnalysisResultArea />
-          </Container>
+        <Grid item lg={2} />
+        <Grid item lg={6}>
+          <AnalysisResultArea />
         </Grid>
         <Grid item lg={3}>
           <RightColumn />
