@@ -9,34 +9,40 @@ export const AnalysisResultArea = ({ result, isRequesting }) => {
     <Card variant="outlined">
       <div className={classes.resultArea}>
         <span>日本語訳</span>
-        {!isRequesting ?
-          (
-            !result.translation ?
-            <p className={classes.example}>今日はいい天気ですね。</p> :
-            <p>{result.translation}</p>
-          ) : (
-            <p>
-              <Skeleton />
-              <Skeleton />
-            </p>
-          )
-        }
+        <p>
+          {!isRequesting ?
+            (
+              !result.translation ?
+              <div className={classes.example}>今日はいい天気ですね。</div> :
+              <div>{result.translation}</div>
+            ) : (
+              <div>
+                <Skeleton />
+                <Skeleton />
+              </div>
+            )
+          }
+        </p>
         <span>発音</span>
-        {!isRequesting ?
-          (
-            !result.romanized ?
-              <p className={classes.example}>oneureun jo-eun nalssi neyo.</p> :
-              <p>{result.romanized}</p>
-          ) : (
-            <p>
-              <Skeleton />
-              <Skeleton />
-            </p>
-          )
-        }
+        <p>
+          {!isRequesting ?
+            (
+              !result.romanized ?
+                <div className={classes.example}>oneureun jo-eun nalssi neyo.</div> :
+                <div>{result.romanized}</div>
+            ) : (
+              <div>
+                <Skeleton />
+                <Skeleton />
+              </div>
+            )
+          }
+        </p>
         <span>品詞分解</span>
         <p>
-          <Tokens tokens={result.tokens} isRequesting={isRequesting} />
+          <div>
+            <Tokens tokens={result.tokens} isRequesting={isRequesting} />
+          </div>
         </p>
       </div>
     </Card>
