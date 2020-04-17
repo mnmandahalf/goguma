@@ -6,7 +6,9 @@ export const Form = ({ handleChange, inputText, invalidTextLength, handleClickAn
   return (
     <>
       <p className={classes.formText}>
-      解析したい韓国語のテキストを以下のテキストフィールドに入力もしくはコピー＆ペーストを行い、「解析する」ボタンをクリックすると、下部のエリアに結果が表示されます。
+      解析したい韓国語のテキストを以下のテキストフィールドに入力もしくはコピー＆ペーストを行い、
+      <br/>
+      「解析する」ボタンをクリックすると、下部のエリアに結果が表示されます。
       </p>
       <TextField
         placeholder="韓国語のテキストを入力 （例）오늘은 좋은 날씨 네요."
