@@ -9,7 +9,7 @@ export const PCHome = () => {
   return (
     <>
       <Header />
-      <Box mt={4}/>
+      <Box mt={2}/>
       <Grid container spacing={3}>
         <Grid item lg={2} />
         <Grid item lg={6}>

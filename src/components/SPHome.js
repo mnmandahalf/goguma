@@ -9,7 +9,7 @@ export const SPHome = () => {
   return (
     <>
       <Header />
-      <Box mt={4}/>
+      <Box mt={1}/>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Container>
