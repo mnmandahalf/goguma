@@ -7,7 +7,7 @@ import { requestObservable } from './request'
 const fetchAnalysisEpic = action$ => action$.pipe(
   ofType('FETCH_ANALYSIS'),
   requestObservable(
-    action => ajax.getJSON(`https://korean-analyze-api.herokuapp.com//analyze?text=${action.text}`),
+    action => ajax.getJSON(`http://35.211.129.214:8000/analysis?text=${action.text}`),
     response => fullfilledAnalysis(response)
   )
 );
