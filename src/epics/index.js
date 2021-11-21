@@ -7,7 +7,7 @@ import { requestObservable } from './request'
 const fetchAnalysisEpic = action$ => action$.pipe(
   ofType('FETCH_ANALYSIS'),
   requestObservable(
-    action => ajax.getJSON(`//34.72.189.22/analysis?text=${action.text}`),
+    action => ajax.getJSON(`https://yukkuri-konlpy-api.com/analysis?text=${action.text}`),
     response => fullfilledAnalysis(response)
   )
 );
