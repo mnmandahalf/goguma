@@ -1,22 +1,12 @@
 import React from 'react';
-import { PCHome } from './PCHome'
-import { SPHome } from './SPHome'
+import { Routes, Route } from "react-router-dom";
+import { Home } from './Home';
+import { SignUp } from './SignUp';
 
-const isPC = () => {
-  const ua = window.navigator.userAgent.toLowerCase();
-  if (ua.indexOf('iphone') > 0 || ua.indexOf('ipod') > 0 || (ua.indexOf('android') > 0 && ua.indexOf('mobile') > 0)) {
-      return false
-  } else if (ua.indexOf('ipad') > 0 || ua.indexOf('android') > 0) {
-      // iOS12 まで
-      return true
-  } else if (ua.indexOf('ipad') > -1 || (ua.indexOf('macintosh') > -1 && 'ontouchend' in document)) {
-      // iOS13 以降
-      return true
-  } else {
-      return true
-  }
-}
-
-const App = () => isPC() ? <PCHome /> : <SPHome />
+const App = () =>
+	<Routes>
+		<Route path="/" element={<Home />} />
+		<Route path="sign_up" element={<SignUp />} />
+	</Routes>
 
 export default App;
