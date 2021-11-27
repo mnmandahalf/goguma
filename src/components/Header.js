@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Typography, Link } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Drawer } from './Drawer'
 
@@ -12,7 +12,9 @@ export const Header = () => {
           <MenuIcon />
         </IconButton>
         <Drawer open={status} onOpen={() => setStatus(true)} onClose={() => setStatus(false)}/>
-        <Typography variant="h7">韓国語テキスト解析ツール yukkuri</Typography>
+        <Link href="/" underline="none" color="inherit">
+          <Typography variant="h6">韓国語テキスト解析ツール yukkuri</Typography>
+        </Link>
       </Toolbar>
     </AppBar>
   )

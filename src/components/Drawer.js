@@ -1,7 +1,5 @@
 import React from 'react'
-import { Link } from "react-router-dom";
-import { SwipeableDrawer } from '@material-ui/core'
-import { RightColumn } from './RightColumn'
+import { SwipeableDrawer, List, ListItem, Link } from '@material-ui/core';
 
 export const Drawer = ({ open, onClose, onOpen}) => {
   return (
@@ -11,10 +9,22 @@ export const Drawer = ({ open, onClose, onOpen}) => {
       onOpen={onOpen}
     >
       <div style={{width: 300}}>
-        <nav>
-          <Link to="/sign_up">ユーザー登録</Link>
-        </nav>
-        <RightColumn />
+        <List>
+          <ListItem>
+            <Link href="/">ホーム</Link>
+          </ListItem>
+          <ListItem>
+            <Link href="/sign_up">ユーザー登録</Link>
+          </ListItem>
+          <ListItem>
+            <Link href="/sign_in">ログイン</Link>
+          </ListItem>
+          <List>
+            <ListItem>
+              <Link href="http://mnmandahalf.hatenablog.com/">お問い合わせは管理人ブログへ</Link>
+            </ListItem>
+          </List>
+        </List>
       </div>
     </SwipeableDrawer>
   )
