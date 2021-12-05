@@ -1,3 +1,4 @@
+import { firebaseReducer } from 'react-redux-firebase';
 import { combineReducers } from 'redux';
 
 const initialState = {
@@ -8,7 +9,7 @@ const initialState = {
     tokens: []
   }
 }
-export const reducer = (state = initialState, action) => {
+export const analysisReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'RESET_ANALYSIS':
       return initialState
@@ -24,11 +25,6 @@ export const reducer = (state = initialState, action) => {
         ...state,
         status: action.payload.status
       }
-    case 'FULFILLED_USER':
-      return {
-        ...state,
-        user: action.payload.user
-      }
     default: {
       return state
     }
@@ -36,5 +32,6 @@ export const reducer = (state = initialState, action) => {
 }
 
 export const rootReducer = combineReducers({
-  reducer
+  analysisReducer,
+  firebase: firebaseReducer
 })
