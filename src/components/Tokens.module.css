@@ -9,6 +9,11 @@
   padding: 6px;
   margin: 0 10px 10px 0;
 }
+.tokenBlock:hover {
+  cursor: pointer;
+  background-color: #CFD4EC;
+}
+
 
 .tokenSmall {
   font-size: 12px;

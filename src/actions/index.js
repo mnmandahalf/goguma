@@ -1,3 +1,18 @@
+export const fetchUser = () => (
+  {
+    type: 'FETCH_USER'
+  }
+)
+
+export const fulfilledUser = (user) => (
+  {
+    type: 'FULLFILLED_USER',
+    payload: {
+      user: user
+    }
+  }
+)
+
 export const resetAnalysis = () => (
   {
     type: 'RESET_ANALYSIS'

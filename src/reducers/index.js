@@ -24,6 +24,11 @@ export const reducer = (state = initialState, action) => {
         ...state,
         status: action.payload.status
       }
+    case 'FULFILLED_USER':
+      return {
+        ...state,
+        user: action.payload.user
+      }
     default: {
       return state
     }

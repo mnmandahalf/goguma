@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { Grid, Box, TextField, Typography } from '@material-ui/core';
 import { auth } from "../firebase.js";
 import { Header } from './Header.js';
-import { SettingsInputAntennaTwoTone } from '@material-ui/icons';
 
 export const SignUp = () => {
   const initialState = {

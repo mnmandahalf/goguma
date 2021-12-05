@@ -18,11 +18,14 @@ export const Tokens = ({ tokens, isRequesting }) => {
   const items = !isSample ? tokens : sampleTokens
   const className = `${isSample ? classes.sample : ""}`
   const classNameSmall = `${classes.tokenSmall} ${isSample ? classes.sample : ""}`
+  const handleClick = () => {
+
+  }
   return (
     <div className={classes.tokens}>
       {!isRequesting ? (
         items.map((item, index) =>
-          <Card variant="outlined" key={item.token + index} className={classes.tokenBlock}>
+          <Card variant="outlined" key={item.token + index} className={classes.tokenBlock} onClick={handleClick}>
             <div className={classNameSmall}>{item.romanized}</div>
             <div className={className}>{item.token}</div>
             <div className={classNameSmall}>{item.word_class}</div>

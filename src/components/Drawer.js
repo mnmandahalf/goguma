@@ -1,18 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { SwipeableDrawer, List, ListItem, Link, Typography } from '@material-ui/core';
-import { auth } from "../firebase.js";
+import { useSelector } from 'react-redux';
+import { getUser } from '../selectors/UserSelector.js';
 
 export const Drawer = ({ open, onClose, onOpen}) => {
-  const [isSignedIn, setIsSignedIn] = useState(false)
-  const [authUser, setAuthUser] = useState()
-  auth.onAuthStateChanged((user) => {
-    if (user) {
-      setIsSignedIn(true)
-      setAuthUser(user)
-    } else {
-      setIsSignedIn(false)
-    }
-  });
+  const authUser = useSelector(state => getUser(state));
+  const isSignedIn = !!authUser;
   return (
     <SwipeableDrawer
       open={open}
