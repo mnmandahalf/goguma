@@ -23,7 +23,11 @@ export const Drawer = ({ open, onClose, onOpen}) => {
             <Link href="/">ホーム</Link>
           </ListItem>
           {
-            !isSignedIn &&
+            isSignedIn ?
+            <ListItem>
+              <Link href="/mypage">マイ単語帳</Link>
+            </ListItem>
+            :
             <ListItem>
               <Link href="/sign_in">ログイン</Link>
             </ListItem>

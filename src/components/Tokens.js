@@ -2,6 +2,7 @@ import React from 'react';
 import { Card } from '@material-ui/core';
 import { Skeleton } from '@material-ui/lab'
 import classes from './Tokens.module.css'
+import { useSelector } from 'react-redux';
 
 const sampleTokens = [
   {token: "오늘", romanized: "oneul", word_class: "一般名詞", translation: "今日では"},
@@ -18,14 +19,17 @@ export const Tokens = ({ tokens, isRequesting }) => {
   const items = !isSample ? tokens : sampleTokens
   const className = `${isSample ? classes.sample : ""}`
   const classNameSmall = `${classes.tokenSmall} ${isSample ? classes.sample : ""}`
-  const handleClick = () => {
-
+  const authUser = useSelector(state => state.firebase.auth);
+  const handleClick = (token) => {
+    if(!isSample && authUser) {
+      alert(token);
+    }
   }
   return (
     <div className={classes.tokens}>
       {!isRequesting ? (
         items.map((item, index) =>
-          <Card variant="outlined" key={item.token + index} className={classes.tokenBlock} onClick={handleClick}>
+          <Card variant="outlined" key={item.token + index} className={classes.tokenBlock} onClick={() => handleClick(item.token)}>
             <div className={classNameSmall}>{item.romanized}</div>
             <div className={className}>{item.token}</div>
             <div className={classNameSmall}>{item.word_class}</div>

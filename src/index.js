@@ -22,7 +22,7 @@ const store = createStore(
 epicMiddleware.run(rootEpic)
 
 const AuthIsLoaded = ({ children }) => {
-  const auth = useSelector(state => { console.log(state); return state.firebase.auth })
+  const auth = useSelector(state => state.firebase.auth)
   if (!isLoaded(auth)) return <div>splash screen...</div>;
   return children
 }
