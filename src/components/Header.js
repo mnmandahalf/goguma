@@ -13,7 +13,7 @@ export const Header = () => {
         </IconButton>
         <Drawer open={status} onOpen={() => setStatus(true)} onClose={() => setStatus(false)}/>
         <Link href="/" underline="none" color="inherit">
-          <Typography variant="h6">韓国語テキスト解析ツール yukkuri</Typography>
+          <Typography variant="h6">韓国語テキスト解析ツール 고구마（コグマ）</Typography>
         </Link>
       </Toolbar>
     </AppBar>
