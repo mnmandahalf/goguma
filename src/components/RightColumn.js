@@ -5,7 +5,7 @@ import classes from './RightColumn.module.css'
 export const RightColumn = () => (
   <List>
     <ListItem>
-      <ListItemText primary="このサイトについて" secondary="yukkuri（ゆっくり）は、
+      <ListItemText primary="このサイトについて" secondary="고구마（コグマ）は、
         韓国語テキストを日本語に翻訳、ルビ振り、品詞分解して解析するWebツールです。
         単に翻訳するだけでなく、トークンをひとつひとつ読みながら意味を理解することで、
         より確かな知識を身に着けることを目的として作られました。
