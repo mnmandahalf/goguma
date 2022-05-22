@@ -21,7 +21,7 @@ export const MyPage = () => {
   const ref = useDatabase(authUser.uid);
   const { data } = useFetchData(ref, authUser.uid);
   const items = data && Object.values(data);
-  return items ? (
+  return (
     <>
       <Header />
       <Box mt={2}/>
@@ -30,7 +30,7 @@ export const MyPage = () => {
         <Grid item lg={6}>
           <Box mt={4}/>
           {
-            items.map((item, index) =>
+            items && items.map((item, index) =>
               <Card variant="outlined" key={item.token + index} className={classes.tokenBlock}>
                 <div className={classes.tokenSmall}>{item.romanized}</div>
                 <div>{item.token}</div>
@@ -44,5 +44,5 @@ export const MyPage = () => {
         </Grid>
       </Grid>
     </>
-  ) : null;
+  );
 }

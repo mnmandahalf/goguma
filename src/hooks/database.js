@@ -10,7 +10,7 @@ export const useFetchData = (ref, id) => {
     useEffect(() => {
       ref.on('value', snapshot => {
         if (snapshot?.val()) {
-          setData(snapshot.val()[id]);
+          setData(snapshot.val());
         }
       });
       return () => {
