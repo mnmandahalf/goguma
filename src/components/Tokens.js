@@ -27,9 +27,7 @@ export const Tokens = ({ tokens, isRequesting }) => {
   const handleClick = useCallback((item) => {
     if(!authUser) return;
     const document = {
-      [authUser.uid]: {
-        ...{ [item.token]: item }, ...data
-      }
+      ...{ [item.token]: item }, ...data
     };
     setDocument(document);
     alert(`"${item.token}"をマイ単語帳に追加しました`);
