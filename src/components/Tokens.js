@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Card } from '@material-ui/core';
 import { Skeleton } from '@material-ui/lab'
 import classes from './Tokens.module.css'
 import { useSelector } from 'react-redux';
+import { useDatabase, useFetchData, useSetDocument } from '../hooks/database';
 
 const sampleTokens = [
   {token: "오늘", romanized: "oneul", word_class: "一般名詞", translation: "今日では"},
@@ -20,16 +21,24 @@ export const Tokens = ({ tokens, isRequesting }) => {
   const className = `${isSample ? classes.sample : ""}`
   const classNameSmall = `${classes.tokenSmall} ${isSample ? classes.sample : ""}`
   const authUser = useSelector(state => state.firebase.auth);
-  const handleClick = (token) => {
-    if(!isSample && authUser) {
-      alert(token);
-    }
-  }
+  const ref = useDatabase();
+  const { data } = useFetchData(ref, authUser.uid);
+  const setDocument = useSetDocument(ref);
+  const handleClick = useCallback((item) => {
+    if(!authUser) return;
+    const document = {
+      [authUser.uid]: {
+        ...{ [item.token]: item }, ...data
+      }
+    };
+    setDocument(document);
+    alert(`"${item.token}"をマイ単語帳に追加しました`);
+  }, [data]);
   return (
     <div className={classes.tokens}>
       {!isRequesting ? (
         items.map((item, index) =>
-          <Card variant="outlined" key={item.token + index} className={classes.tokenBlock} onClick={() => handleClick(item.token)}>
+          <Card variant="outlined" key={item.token + index} className={classes.tokenBlock} onClick={() => {handleClick(item)}}>
             <div className={classNameSmall}>{item.romanized}</div>
             <div className={className}>{item.token}</div>
             <div className={classNameSmall}>{item.word_class}</div>

@@ -3,6 +3,8 @@ import { Grid, Box, Card } from '@material-ui/core';
 import { Header } from './Header.js';
 import { RightColumn } from './RightColumn'
 import classes from './Tokens.module.css'
+import { useDatabase, useFetchData } from '../hooks/database.js';
+import { useSelector } from 'react-redux';
 
 const sampleTokens = [
   {token: "오늘", romanized: "oneul", word_class: "一般名詞", translation: "今日では"},
@@ -15,8 +17,11 @@ const sampleTokens = [
 ]
 
 export const MyPage = () => {
-  const items = sampleTokens;
-  return (
+  const authUser = useSelector(state => state.firebase.auth);
+  const ref = useDatabase();
+  const { data } = useFetchData(ref, authUser.uid);
+  const items = data && Object.values(data);
+  return items ? (
     <>
       <Header />
       <Box mt={2}/>
@@ -39,5 +44,5 @@ export const MyPage = () => {
         </Grid>
       </Grid>
     </>
-  )
+  ) : null;
 }
