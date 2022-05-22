@@ -21,7 +21,7 @@ export const Tokens = ({ tokens, isRequesting }) => {
   const className = `${isSample ? classes.sample : ""}`
   const classNameSmall = `${classes.tokenSmall} ${isSample ? classes.sample : ""}`
   const authUser = useSelector(state => state.firebase.auth);
-  const ref = useDatabase();
+  const ref = useDatabase(authUser.uid);
   const { data } = useFetchData(ref, authUser.uid);
   const setDocument = useSetDocument(ref);
   const handleClick = useCallback((item) => {

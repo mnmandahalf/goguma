@@ -1,8 +1,8 @@
 import firebase from 'firebase/compat/app';
 import { useCallback, useEffect, useMemo, useState } from "react";
 
-export const useDatabase = () => {
-    return useMemo(() => firebase.database().ref('/favorites'), []);
+export const useDatabase = (id) => {
+    return useMemo(() => firebase.database().ref(`/favorites/${id}`), []);
 };
 
 export const useFetchData = (ref, id) => {

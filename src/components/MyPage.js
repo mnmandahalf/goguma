@@ -18,7 +18,7 @@ const sampleTokens = [
 
 export const MyPage = () => {
   const authUser = useSelector(state => state.firebase.auth);
-  const ref = useDatabase();
+  const ref = useDatabase(authUser.uid);
   const { data } = useFetchData(ref, authUser.uid);
   const items = data && Object.values(data);
   return items ? (
