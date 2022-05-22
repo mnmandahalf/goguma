@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 export const Drawer = ({ open, onClose, onOpen}) => {
   const authUser = useSelector(state => state.firebase.auth);
-  const isSignedIn = !!authUser;
+  const isSignedIn = !authUser.isEmpty;
   return (
     <SwipeableDrawer
       open={open}
